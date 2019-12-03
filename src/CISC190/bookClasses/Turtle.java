@@ -1,7 +1,5 @@
 package CISC190.bookClasses;
 
-import java.awt.*;
-
 /**
  * Class that represents a turtle which is similar to a Logo turtle.
  * This class inherts from SimpleTurtle and is for students
@@ -71,36 +69,5 @@ public class Turtle extends SimpleTurtle {
 		t1.forward();
 	}
 
-
-	public void drawShapes(int count, int size, int sides, int x, int y, int offsetX, int offsetY, Color c) {
-
-		this.setColor(c);
-		int turnAngle = 360 / sides;
-		//For loop for shape count to be created
-		for (int i = 0; i < count; i++) {
-
-			// if iteration is larger than 0 then we add offest value to current position else just move to x and y values.
-			if (i > 0) {
-				x = this.getXPos() + offsetX; //Gets the current Position of x axis and adds offest value.
-				y = this.getYPos() + offsetY; //Gets the corrent Position of y axis and adds offset value.
-				noMarkMove(x, y);
-			} else noMarkMove(x, y);
-
-			System.out.println("x: " + x + " y: " + y);
-
-			//Makes the shape based off of sides, size and turn angle values
-			for (int j = sides; j >= 0; j--) {
-				this.forward(size);
-				this.turn(turnAngle);
-			}
-		}
-	}
-
-	// Method for movingTo(x,y) without marking.
-	private void noMarkMove(int x, int y) {
-		this.penUp();
-		this.moveTo(x, y);
-		this.penDown();
-	}
 
 } // this } is the end of class Turtle, put all new methods before this
